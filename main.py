@@ -9,19 +9,22 @@ mi_key = os.getenv("GEMINI_API_KEY")
 
 client = genai.Client(api_key=mi_key)
 
-class DatoCurioso(BaseModel):
-    dato: str
-    fuente_confiable: bool 
-class ListaDatos(BaseModel):
-    datos: List[str]
-    nivel_certeza: Literal["alto", "medio", "bajo"]
-response = client.models.generate_content(
+class Reseñas(BaseModel):
+    sentimiento: Literal["positivo", "negativo", "neutral"]
+    resumen : str
+    requiere_atencion: bool 
+reseñas = [
+    "El producto llegó roto y nadie me responde los emails",
+    "Todo perfecto, llegó rápido y como se describía",
+    "Está bien, nada especial"
+]
+for reseña in reseñas:
+    resultado = client.models.generate_content(
     model="gemini-3.6-flash",
-    contents="dime 3 datos curiosos sobre el espacio, y su nivel de certeza",
+    contents=f"Analiza esta reseña: {reseña}",
     config={
         "response_mime_type": "application/json",
-        "response_schema": ListaDatos,
+        "response_schema": Reseñas,
     }
-)
-
-print(response.parsed)
+    )
+    print(resultado.parsed)
