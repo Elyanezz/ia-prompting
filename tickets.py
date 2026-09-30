@@ -33,4 +33,7 @@ def analizar_ticket(ticket: TicketEntrada):
         "response_schema": Ticket,
     }
     )
+    texto_json = resultado.parsed.model_dump_json()
+    with open("tickets_historial.jsonl", "a", encoding="utf-8") as f:
+        f.write(texto_json + "\n")
     return resultado.parsed
