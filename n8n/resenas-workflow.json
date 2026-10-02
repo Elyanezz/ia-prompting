@@ -1,0 +1,177 @@
+{
+  "name": "urgencia-tickets",
+  "nodes": [
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "d77e62fe-e41b-40a1-8d85-63e21dfb9709",
+              "leftValue": "={{ $json.urgencia }}",
+              "rightValue": "=alta",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        384,
+        -144
+      ],
+      "id": "a68c5297-c61f-4617-819c-d23db3106abe",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "104ff459-a35c-4e2d-8083-1da03c90bde7",
+              "name": "alarma",
+              "value": "=Urgencia alta, necesidad de resolucion",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        928,
+        -240
+      ],
+      "id": "de613a1a-2b09-4e90-af3e-7cc755f4f574",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "6df5f51e-f86a-4900-8d38-e862a4b889cd",
+              "name": "resultado",
+              "value": "=No hace falta actuar, pendiente a la lista",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        928,
+        -64
+      ],
+      "id": "c9bbec16-4fc3-4f15-8b82-8af1f7b753d7",
+      "name": "Edit Fields1"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://host.docker.internal:8000/tickets",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"texto\": \"{{ $json.body.texto }}\"\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.5,
+      "position": [
+        176,
+        -144
+      ],
+      "id": "bf7eca4b-040a-4181-bea1-f1ca6a592f20",
+      "name": "HTTP Request",
+      "retryOnFail": true,
+      "waitBetweenTries": 3000
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "nuevo-ticket",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -48,
+        -144
+      ],
+      "id": "b33895c1-be18-4408-ae54-d7f7fcfcace6",
+      "name": "Webhook",
+      "webhookId": "3987bb8d-cfa5-4a1c-91ee-b1a98a7458bf"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Edit Fields1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "b6f27379-ba96-4add-b37c-c242266e9a0a",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "0924246d61fb3682930ce6154bcea8cab4daa7ae44ba96559a5a1fbaf92c3ed8"
+  },
+  "nodeGroups": [],
+  "id": "5FR4MMdc7uNOdjMl",
+  "tags": []
+}
