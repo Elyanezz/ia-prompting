@@ -37,3 +37,9 @@ def analizar_ticket(ticket: TicketEntrada):
     with open("tickets_historial.jsonl", "a", encoding="utf-8") as f:
         f.write(texto_json + "\n")
     return resultado.parsed
+
+@app.post("/tickets/pendientes")
+def guardar_pendiente(ticket: TicketEntrada):
+    with open("tickets_pendientes.jsonl", "a", encoding="utf-8") as f:
+        f.write(ticket.model_dump_json() + "\n")
+    return {"estado": "guardado como pendiente"}

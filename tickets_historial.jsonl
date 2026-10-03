@@ -1,0 +1,14 @@
+{"categoria":"bug","sentimiento":"negativo","urgencia":"alta","resumen":"La app se cierra al abrir el perfil"}
+{"categoria":"bug","sentimiento":"negativo","urgencia":"alta","resumen":"La app se cierra al abrir el perfil"}
+{"categoria":"acceso","sentimiento":"negativo","urgencia":"alta","resumen":"El usuario no puede iniciar sesión debido a un error de contraseña incorrecta a pesar de haberla reseteado dos veces, y requiere el acceso para trabajar hoy."}
+{"categoria":"facturacion","sentimiento":"neutral","urgencia":"baja","resumen":"El usuario solicita verificar un posible cobro duplicado durante el mes actual."}
+{"categoria":"otros","sentimiento":"positivo","urgencia":"baja","resumen":"El usuario felicita por el nuevo diseño de la aplicación, indicando que es más claro que el anterior."}
+{"categoria":"bug","sentimiento":"negativo","urgencia":"media","resumen":"La app se cierra inesperadamente al intentar subir una foto de perfil desde cualquier dispositivo."}
+{"categoria":"bug","sentimiento":"negativo","urgencia":"alta","resumen":"La aplicaciÃ³n se cierra inesperadamente al intentar subir una foto de perfil en varios dispositivos."}
+{"categoria":"bug","sentimiento":"negativo","urgencia":"alta","resumen":"La aplicaciÃ³n se cierra automÃ¡ticamente al intentar subir una foto de perfil en cualquier dispositivo."}
+{"categoria":"bug","sentimiento":"negativo","urgencia":"alta","resumen":"La aplicaciÃ³n se cierra inesperadamente al intentar subir una foto de perfil en cualquier dispositivo."}
+{"categoria":"facturacion","sentimiento":"neutral","urgencia":"baja","resumen":"El usuario solicita verificar un posible cobro duplicado en su factura, indicando que no es urgente."}
+{"categoria":"facturacion","sentimiento":"neutral","urgencia":"baja","resumen":"El usuario solicita verificar un posible cobro duplicado en su factura de este mes sin urgencia."}
+{"categoria":"facturacion","sentimiento":"neutral","urgencia":"baja","resumen":"El usuario consulta un posible doble cobro en su factura mensual sin urgencia."}
+{"categoria":"facturacion","sentimiento":"neutral","urgencia":"baja","resumen":"El usuario consulta sobre un posible doble cobro este mes sin prioridad urgente."}
+{"categoria":"facturacion","sentimiento":"neutral","urgencia":"baja","resumen":"El usuario consulta sobre un posible cobro duplicado este mes sin urgencia."}

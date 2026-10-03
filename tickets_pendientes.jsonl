@@ -1,0 +1,5 @@
+{"texto":"Llevo tres días sin poder acceder a mi cuenta, por favor ayuda urgente"}
+{"texto":"Llevo tres días sin poder acceder a mi cuenta, por favor ayuda urgente"}
+{"texto":"{{ $json.body.texto }}"}
+{"texto":"Creo que me han cobrado dos veces este mes, pero no es nada urgente, solo quería confirmarlo cuando podáis."}
+{"texto":"Creo que me han cobrado dos veces este mes, pero no es nada urgente, solo quería confirmarlo cuando podáis."}
