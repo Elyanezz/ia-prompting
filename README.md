@@ -9,13 +9,16 @@ Este sistema analiza todos los mensajes enviados mediante el canal de soporte y 
 ## ¿Qué necesita mi equipo para usarlo?
 El cliente necesitaría una parte de soporte como un formulario o un chat donde se pueda mandar un mensaje y conectar estos mensajes para poder catalogarlos y darles su respectiva urgencia
 
-## ¿Qué problema resuelve?
-
-Este sistema reduce el tiempo que el equipo de soporte necesita para revisar y clasificar manualmente los mensajes recibidos.
-En lugar de revisar cada mensaje desde cero, el equipo recibe los mensajes ya clasificados según su urgencia y categoría, permitiendo dedicar más tiempo a los casos que realmente necesitan intervención.
 
 ## ¿Qué pasa si algo falla?
 Se guardan en un sitio donde se tienen que revisar a mano ya que aún no hay procesamiento automático
+
+## ¿Qué problema resuelve?
+
+Este sistema reduce el tiempo que el equipo de soporte necesita para revisar y clasificar manualmente los mensajes recibidos.
+
+En lugar de revisar cada mensaje desde cero, el equipo recibe los mensajes ya clasificados según su urgencia y categoría, permitiendo dedicar más tiempo a los casos que realmente necesitan intervención.
+
 
 ## ¿Qué puede ahorrar?
 
@@ -41,3 +44,14 @@ Actualmente el sistema:
 - Marca los casos de alta urgencia.
 - Mantiene un registro de los casos.
 - Envía los casos que no puede procesar a revisión manual.
+
+## Preguntas Frecuentes
+
+### ¿Por qué necesito esto si ya tengo personal para revisar los mensajes?
+Puede ser una herramienta útil para apoyar al personal. Pueden darse casos donde el personal tenga tiempo limitado o reciba una cantidad excesiva de mensajes y no pueda clasificarlos todos al mismo tiempo. Este sistema ahorra tiempo en ese aspecto y asegura que ningún mensaje se pierda, aunque algunos puedan quedar pendientes de clasificación en caso de fallo.
+
+### ¿Qué pasa si la IA clasifica mal un mensaje?
+Aunque un mensaje esté mal clasificado, el personal solo tiene que revisar la clasificación, no leer y categorizar el mensaje desde cero. Esto ahorra tiempo: en vez de analizar cada mensaje por completo, solo hay que confirmar rápidamente si la categoría asignada tiene sentido.
+
+### ¿Gemini guarda la información de los mensajes?
+Gemini guarda esta información durante 55 días para control de uso, según sus políticas. Google no usa esos datos para entrenar sus modelos, y pasado ese periodo la información se elimina.
