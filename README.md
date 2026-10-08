@@ -55,3 +55,17 @@ Aunque un mensaje esté mal clasificado, el personal solo tiene que revisar la c
 
 ### ¿Gemini guarda la información de los mensajes?
 Gemini guarda esta información durante 55 días para control de uso, según sus políticas. Google no usa esos datos para entrenar sus modelos, y pasado ese periodo la información se elimina.
+
+## Tecnologías utilizadas
+Python: lógica del sistema y procesamiento de los tickets.
+FastAPI: API que recibe los mensajes y devuelve su clasificación.
+Gemini: análisis del contenido mediante inteligencia artificial para determinar la categoría, la urgencia, el sentimiento y un resumen del mensaje.
+n8n: automatización del flujo de trabajo y gestión de las decisiones según la urgencia detectada.
+JSONL: almacenamiento del historial de tickets procesados.
+
+## Flujo de procesamiento
+El sistema recibe un mensaje de soporte.
+La IA analiza su contenido y genera una clasificación estructurada.
+La API devuelve los datos del ticket, incluyendo su categoría, urgencia, sentimiento y resumen.
+n8n evalúa la urgencia y dirige el ticket al flujo correspondiente.
+El ticket queda registrado para su consulta posterior. Los casos que requieren atención prioritaria se identifican para facilitar su revisión.
