@@ -25,18 +25,21 @@ class TicketEntrada(BaseModel):
 
 @app.post("/tickets")
 def analizar_ticket(ticket: TicketEntrada):
-    resultado = client.models.generate_content(
-         model="gemini-3.6-flash",
-    contents=f"Analiza este ticket: {ticket.texto}",
-    config={
-        "response_mime_type": "application/json",
-        "response_schema": Ticket,
-    }
-    )
-    texto_json = resultado.parsed.model_dump_json()
-    with open("tickets_historial.jsonl", "a", encoding="utf-8") as f:
-        f.write(texto_json + "\n")
-    return resultado.parsed
+    try:
+        resultado = client.models.generate_content(
+             model="gemini-3.6-flash",
+            contents=f"Analiza este ticket: {ticket.texto}",
+            config={
+                "response_mime_type": "application/json",
+                "response_schema": Ticket,
+            }
+        )
+        texto_json = resultado.parsed.model_dump_json()
+        with open("tickets_historial.jsonl", "a", encoding="utf-8") as f:
+            f.write(texto_json + "\n")    
+        return resultado.parsed
+    except Exception as e:
+        return {"error": "no se pudo procesar"}
 
 @app.post("/tickets/pendientes")
 def guardar_pendiente(ticket: TicketEntrada):
